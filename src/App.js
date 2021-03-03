@@ -65,7 +65,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Pokedex</h1>
+      <h1>Pokedex2</h1>
       <Search handleSearch={handleSearchPokemons} />
       {pokes.length > 0 && myArrOfPokemons}
     </div>
