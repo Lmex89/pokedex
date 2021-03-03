@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+// this is Luis Mex branch 
 const Pokedex = ({ name, url }) => {
   const [pokemon, setPokemon] = useState(null);
 
