@@ -1,8 +1,8 @@
-import "./App.css";
 import React, { useState, useEffect } from "react";
+import Pagination from "./pagination";
 import axios from "axios";
 
-// this is Luis Mex branch 
+// this is Luis Mex branch
 const Pokedex = ({ name, url }) => {
   const [pokemon, setPokemon] = useState(null);
 
@@ -35,25 +35,27 @@ const Search = ({ handleSearch }) => {
 
 function App() {
   const [pokes, setPokes] = useState([]);
-  const [query, setQuery] = useState("");
+  const [typeOfPok, SeTTypePok] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [poksperPage] = useState(10);
 
   // Llamar PokeAPI
   useEffect(() => {
-    if (query) {
-      const promise = axios(`https://pokeapi.co/api/v2/type/${query}`);
+    if (typeOfPok) {
+      const promise = axios(`https://pokeapi.co/api/v2/type/${typeOfPok}`);
 
       promise.then((res) => {
-        setPokes(res.data.pokemon.slice(0, 10));
+        setPokes(res.data.pokemon);
       });
     }
-  }, [query]);
+  }, [typeOfPok]);
 
   useEffect(() => {
     console.log(pokes);
   }, [pokes]);
 
   const handleSearchPokemons = (value) => {
-    setQuery(value);
+    SeTTypePok(value);
   };
 
   const myArrOfPokemons = pokes.map((value) => (
@@ -64,11 +66,22 @@ function App() {
     />
   ));
 
+  const indexOfLastPost = currentPage * poksperPage;
+  const indexofFirstPost = indexOfLastPost - poksperPage;
+  const currentPoks = myArrOfPokemons.slice(indexofFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
-    <div className="App">
-      <h1>Pokedex</h1>
+    <div className="container mt-5">
+      <h1 className="text-primary mb-3">Pokedex</h1>
       <Search handleSearch={handleSearchPokemons} />
-      {pokes.length > 0 && myArrOfPokemons}
+      {pokes.length > 0 && currentPoks}
+      <Pagination
+        poksPerPage={poksperPage}
+        totalPoks={myArrOfPokemons.length}
+        paginate={paginate}
+      />
     </div>
   );
 }
