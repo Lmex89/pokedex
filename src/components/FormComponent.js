@@ -10,9 +10,9 @@ const FormComponent = ({ handleSearch }) => {
     return (
         <Form inline>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Serch by Name</NavDropdown.Item>
+                <NavDropdown.Item >Serch by Name</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.2">Serch by Number</NavDropdown.Item>
+                <NavDropdown.Item >Serch by Number</NavDropdown.Item>
             </NavDropdown>
             <FormControl onChange={(e) => setSearchTerm(e.target.value)} type="text" placeholder="Search" className="mr-sm-2" />
             <Button onClick={() => handleSearch(searchTerm)} variant="outline-success">Search</Button>
