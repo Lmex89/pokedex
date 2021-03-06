@@ -1,12 +1,23 @@
 import "./App.css";
-import PokedexContainer from './components/PokedexContainer';
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import Pokedex from './components/Pokedex';
+import Login from './components/login';
 
 function App() {
   
 
   return (
     <div className="App">
-      <PokedexContainer />
+      <Router>
+        <Switch>
+          <Route path="/pokedex"> 
+            <Pokedex />
+          </Route>
+          <Route path="/"> 
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

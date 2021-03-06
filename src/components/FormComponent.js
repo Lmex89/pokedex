@@ -14,7 +14,7 @@ const FormComponent = ({ handleSearch }) => {
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.2">Serch by Number</NavDropdown.Item>
             </NavDropdown>
-            <FormControl onChange={(e) => setSearchTerm(e.target.value)} type="text" placeholder="Search" className="mr-sm-2" />
+            <FormControl onChange={(e) => setSearchTerm(e.target.value)} onSubmit={() => handleSearch(searchTerm)} type="text" placeholder="Search" className="mr-sm-2" />
             <Button onClick={() => handleSearch(searchTerm)} variant="outline-success">Search</Button>
         </Form>
     );
