@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import PokeItem from './PokeItem';
 import NavBar from "./NavBar";
-import Pagination from "../pagination"
+import Pagination from "./pagination"
 
 const PokedexContainer = () => {
 

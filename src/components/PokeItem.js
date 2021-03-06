@@ -21,7 +21,7 @@ const PokeItem = ({ name,  url }) => {
       const promise = axios(url);
   
       promise.then((res) => {
-        setPokemon(res.data.id);
+        setPokemon(res.data.sprites.front_default);
         setTypes(res.data.types.slice(0, 2));
         setHp(res.data.stats[0].base_stat);
         setAttack(res.data.stats[1].base_stat);
@@ -36,12 +36,12 @@ const PokeItem = ({ name,  url }) => {
         <TypeBadges type={value.type.name} key={value.type.name}/>
     ));
 
-    const pokeImg = `https://pokeres.bastionbot.org/images/pokemon/${pokemon}.png`
+    // const pokeImg = `https://pokeres.bastionbot.org/images/pokemon/${pokemon}.png`
   
     return (
         <Col className="p-3"  xl="3" lg="3" md="4" sm="6" xs="12">
             <Card>
-                <Card.Img className="px-5 pt-5" variant="top" src={pokeImg} alt={name} />
+                <Card.Img className="px-5 pt-5" variant="top" src={pokemon} alt={name} />
                 <p>{myArrOfTypes}</p>
                 <Card.Body className="text-left">
                     <Card.Title><h2>{name}</h2></Card.Title>
