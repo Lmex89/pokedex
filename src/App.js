@@ -1,10 +1,13 @@
-import PokedexContainer from './components/PokedexContainer';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
-function App() { 
+import PublicRoutes from './routes/publicRoutes'
+
+function App(props) { 
 
   return (
     <div className="App">
-      <PokedexContainer />
+      <PublicRoutes/>
+      <Redirect path="/**" to="/#home"/>
     </div>
   );
 }
