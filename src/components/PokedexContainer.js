@@ -7,8 +7,7 @@ import NavBar from "./NavBar";
 import { HashRouter as Router, Switch } from "react-router-dom";
 
 const PokedexContainer = ({pokes, serch}) => {
-
-    
+  
     const [currentPage, setCurrentPage] = useState(1);
     const [poksperPage] = useState(4);
 
@@ -29,7 +28,7 @@ const PokedexContainer = ({pokes, serch}) => {
         <Router>
             <Switch>
                 <Container fluid="true">
-                    <NavBar handleSearchPokemons={serch} />
+                    <NavBar handleSearchPokemons={serch} typesofpoks={pokes}/>
                     <Container fluid="true">
                         <Row>
                             {pokes.length > 0 && currentPoks}

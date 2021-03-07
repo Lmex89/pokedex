@@ -32,6 +32,7 @@ const Pokedex = () => {
     
 
     return (
+
         <Router>
             <Switch>
                 <Route exact path="/pokedex" render={() => <PokedexContainer pokes={pokes} serch={SearchPokemons} />} />
