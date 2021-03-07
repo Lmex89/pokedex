@@ -63,7 +63,7 @@ const PokeItem = ({ name,  url }) => {
                     <Link className="btn btn-primary" to={{
                         pathname: `/pokedex/${Id}`,
                         state: {
-                        post: url,}
+                        url: url}
                     }}
                     >View pokemon</Link>
                 </Card.Body>

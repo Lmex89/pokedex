@@ -3,6 +3,7 @@ import axios from 'axios';
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import PokedexContainer from './PokedexContainer';
 import PokemonContainer from "./PokemonContainer";
+import PokeItem from './PokeItem';
 
 const Pokedex = () => {
 
@@ -24,8 +25,9 @@ const Pokedex = () => {
 
     useEffect(() => {
         console.log(pokes);
-    }, [pokes]);
+    },[pokes]);
 
+    
     const SearchPokemons = (value) => {
         setQuery(value);
     };
@@ -35,7 +37,7 @@ const Pokedex = () => {
         <Router>
             <Switch>
                 <Route exact path="/pokedex" render={() => <PokedexContainer pokes={pokes} serch={SearchPokemons} />} />
-                <Route path="/pokedex/:id" render={({ match }) => ( <PokemonContainer pokemons={pokes[match.params.id - 1]} />)}/>
+                <Route path="/pokedex/:id" render={() => ( <PokemonContainer url />)}/>
             </Switch>
         </Router>
         

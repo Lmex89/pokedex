@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Pagination = ({ poksPerPage, totalPoks, paginate }) => {
   let pageNumbers = [];
@@ -12,9 +13,10 @@ const Pagination = ({ poksPerPage, totalPoks, paginate }) => {
       <ul className="pagination">
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
-            <a onClick={() => paginate(number)} href="!#" className="page-link">
-              {number}
-            </a>
+          <Link className="page-link" onClick={() => paginate(number)} to="/pokedex">{number}</Link>
+            {/* <a onClick={() => paginate(number)} href="/" className="page-link"> */}
+              {/* {number}
+            </a> */}
           </li>
         ))}
       </ul>
