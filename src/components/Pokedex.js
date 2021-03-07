@@ -3,7 +3,7 @@ import axios from 'axios';
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import PokedexContainer from './PokedexContainer';
 import PokemonContainer from "./PokemonContainer";
-import PokeItem from './PokeItem';
+
 
 const Pokedex = () => {
 

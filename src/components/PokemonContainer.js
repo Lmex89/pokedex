@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import { Link, useLocation } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+
 
 const PokemonContainer = ({url}) => {
     
