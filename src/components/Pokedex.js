@@ -10,8 +10,6 @@ const Pokedex = () => {
     const [pokes, setPokes] = useState([]);
     const [query, setQuery] = useState("");
 
-
-
     // Llamar PokeAPIcd
     useEffect(() => {
         if (query) {
@@ -37,7 +35,7 @@ const Pokedex = () => {
         <Router>
             <Switch>
                 <Route exact path="/pokedex" render={() => <PokedexContainer pokes={pokes} serch={SearchPokemons} />} />
-                <Route path="/pokedex/:id" render={() => ( <PokemonContainer url />)}/>
+                <Route path="/pokedex/:id" render={() => ( <PokemonContainer />)}/>
             </Switch>
         </Router>
         
