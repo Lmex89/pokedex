@@ -4,7 +4,8 @@ import Row from 'react-bootstrap/Row';
 import PokeItem from './PokeItem';
 import Pagination from "./pagination";
 import NavBar from "./NavBar";
-import { HashRouter as Router, Switch } from "react-router-dom";
+
+
 
 const PokedexContainer = ({pokes, serch}) => {
   
@@ -25,10 +26,11 @@ const PokedexContainer = ({pokes, serch}) => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <Router>
-            <Switch>
-                <Container fluid="true">
-                    <NavBar handleSearchPokemons={serch} typesofpoks={pokes}/>
+        
+        <Container fluid="true">
+           
+            <NavBar handleSearchPokemons={serch} />
+           
                     <Container fluid="true">
                         <Row>
                             {pokes.length > 0 && currentPoks}
@@ -39,9 +41,7 @@ const PokedexContainer = ({pokes, serch}) => {
                         </Row>
                     </Container>
                 </Container>
-                
-            </Switch>
-        </Router>
+          
         
     );
 };

@@ -1,16 +1,18 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
 import { PublicRoute } from "./helperRouters";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
 import Pokedex from '../components/Pokedex';
 import Login from '../components/login';
 
 const PublicRoutes = () => {
   return (
     <Router>
+      
       <Switch>
         <Route path="/pokedex">
           <Pokedex />
+        
         </Route>
         <Route path="/">
           <Login />

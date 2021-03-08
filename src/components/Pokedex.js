@@ -13,33 +13,33 @@ const Pokedex = () => {
     // Llamar PokeAPIcd
     useEffect(() => {
         if (query) {
-        const promise = axios(`https://pokeapi.co/api/v2/type/${query}`);
+            const promise = axios(`https://pokeapi.co/api/v2/type/${query}`);
 
-        promise.then((res) => {
-            setPokes(res.data.pokemon);
-        });
+            promise.then((res) => {
+                setPokes(res.data.pokemon);
+            });
         }
     }, [query]);
 
     useEffect(() => {
         console.log(pokes);
-    },[pokes]);
+    }, [pokes]);
 
-    
+
     const SearchPokemons = (value) => {
         setQuery(value);
     };
-    
+
 
     return (
 
         <Router>
             <Switch>
-                <Route exact path="/pokedex" render={() => <PokedexContainer pokes={pokes} serch={SearchPokemons} />} />
-                <Route path="/pokedex/:id" render={() => ( <PokemonContainer />)}/>
+                <PokedexContainer pokes={pokes} serch={SearchPokemons} />
+                <Route path="/pokedex/:id" render={() => (<PokemonContainer />)} />
             </Switch>
         </Router>
-        
+
     );
 };
 
